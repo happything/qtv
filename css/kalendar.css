@@ -1,0 +1,105 @@
+.kalendar{
+	background: #fff;
+	border: 1px #a6c9e2 solid;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	width: 247px;
+        z-index: 100;
+}
+
+.kalendar .grid{
+	width: 100%;
+}
+
+.kalendar .grid td, .kalendar .grid th{
+	font-size: 11px;
+	font-family: arial;
+	font-weight: bold;
+}
+
+.kalendar .header{
+	background: #70a8d2 url('img/bg-controls.jpg') left top repeat-x;
+	border: 1px #4297d7 solid;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	color: #fff;
+	font-family: arial;
+	font-size: 12px;
+	font-weight: bold;
+	margin: 2px auto;
+	width: 98%;
+}
+
+.kalendar select{
+	font-size: 11px;
+	margin: 0 3px;
+	width: 60px;
+}
+
+.kalendar .center{
+	text-align: center;
+}
+
+.kalendar .grid td{
+	background: #e1effb url('img/bg-day.jpg') left top repeat-x;
+	border: 1px #c5dbec solid;
+	color: #2e6e9e;
+	cursor: pointer;
+	padding: 1px 1%;
+	text-align: center;
+	width: 12%;
+}
+
+.kalendar .grid td.wk{
+	background: #f3f4c4;
+	width: 16px;
+}
+
+.kalendar td.other{
+	opacity: 0.6;
+	filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)"
+}
+	
+.kalendar td.today{
+	background: #fbec88;
+	border: 1px #fad42e solid;
+	opacity: 1;
+}
+
+.kalendar td.hover{
+	border: 1px #69c solid;
+}
+
+.kalendar td.back, .kalendar td.next{
+	width: 22px;
+}
+
+.kalendar td.back a, .kalendar td.next a{
+	cursor: pointer;
+	display: block;
+	height: 22px;
+	width: 22px;
+}
+
+.kalendar td.back a{
+	background: url('img/icon-back.png') center center no-repeat;
+}
+
+.kalendar td.next a{
+	background: url('img/icon-next.png') center center no-repeat;
+}
+
+.kalendar td.back a:hover{
+	background: url('img/icon-back-hover.png') center center no-repeat;
+}
+
+.kalendar td.next a:hover{
+	background: url('img/icon-next-hover.png') center center no-repeat;
+}		
+
+.kalendar input{
+	width: 300px;
+}

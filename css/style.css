@@ -1,0 +1,227 @@
+html { background: url(img/pattern.png); font-family: 'Titillium Web',helvetica; }
+body {  }
+
+.center { margin:0 auto; width: 960px; text-align: left; }
+.default-center {  }
+
+.top { background: rgba(0,0,0,0.7); color:#fff; padding: 10px 0; text-align: center; height: 16px; position: relative; z-index: 100000; }
+.top .top-center { text-align: right; }
+.top .top-center .user-info { position: relative; font-family: 'Titillium Web' !important; }
+.top .top-center .user-info .user-name { color:#aad5e5; }
+.top .top-center .user-info .logout { color:#00c6ff; font-size: 11px; text-decoration: underline; margin-left: 15px; cursor: pointer; }
+.top .top-center .user-info .logout:hover { text-decoration: none; }
+.top .top-center .user-info #login-btn { cursor: pointer; color:#6fbded; line-height: 25px; float: right; padding-right: 10px; border-right: 1px solid #333; }
+.top .top-center .user-info #login-btn:hover { color:#00c6ff; }
+.top .top-center .user-info #fb-login-btn { border-left: 1px solid #666; display: block; width: 202px; height: 26px; overflow: hidden; text-indent: 1000px; padding-left: 10px; line-height: 25px; float:right; background: url(img/facebook-login-btn.png) no-repeat right top; cursor: pointer; }
+.top .top-center .user-info #fb-login-btn:hover { background-position: right bottom; }
+.top .top-center .user-info .login-form { text-align: left; position: absolute; width: 200px; color:#fff; height: 150px; position: 100000; right: 140px; top:31px; display: none; padding: 10px; background: rgba(0, 0, 0, 0.7); }
+.top .top-center .user-info .login-form div.input { margin-bottom: 5px; }
+.top .top-center .user-info .login-form div.user { margin-bottom: 10px; }
+.top .top-center .user-info .login-form div label { font-size: 12px; color:#fff; text-shadow:1px 1x 1px #fff; }
+.top .top-center .user-info .login-form div input { border:1px solid #000; padding: 5px; width: 190px; }
+.top .top-center .user-info .login-form div.remember { text-align: right; } 
+.top .top-center .user-info .login-form div.remember input { width: auto; }
+.top .top-center .user-info .login-form input.submit { width: 198px; background: #000; color:#fff; border:1px solid #000; border-radius: 5px; margin-top: 8px; border-top:1px solid #666; height: 28px; box-shadow:1px 1px 1px #333; }
+.top .top-center .user-info .login-form input.submit:hover { background: #666; }
+.sub-top { margin-bottom: 30px; }
+.sub-top .sub-top-center nav { float: right; }
+.sub-top .sub-top-center nav ul li.menu_element { display: inline-block; position: relative; }
+.sub-top .sub-top-center nav ul li.menu_element a.element-link { padding: 40px 13px 13px 10px; color:#fff; font-size: 15px; text-shadow:1px 1px 1px #333; font-family: 'SansationBold',helvetica; }
+.sub-top .sub-top-center nav ul li.menu_element a.element-link:hover { background-color: rgba(0,0,0,0.5); text-shadow:1px 1px 1px #000; }
+.sub-top .sub-top-center nav ul li.menu_element ul.sub_menu_Fotos { position: absolute; left:0; float:left; top:65px; z-index: 10000; padding: 10px; background-color: rgba(0,0,0,0.7); display: none; width: 150px; padding-top: 20px; }
+.sub-top .sub-top-center nav ul li.menu_element ul.sub_menu_Fotos:parent { background-color:#fff !important; }
+.sub-top .sub-top-center nav ul li.menu_element ul.sub_menu_Fotos li { margin-bottom: 0px; line-height: 30px; }
+.sub-top .sub-top-center nav ul li.menu_element ul.sub_menu_Fotos a { color:#fff !important; font-family: 'MyriadProCondRegular'; font-size: 50px; }
+.sub-top .sub-top-center nav ul li.menu_element ul.sub_menu_Fotos a:hover { color:#00C6FF !important; }
+.sub-top .sub-top-center nav ul li.selected a.element-link { background-color: rgba(0,0,0,0.7) !important; color:#fff; text-shadow:1px 1px 1px #000; }
+.sub-top .sub-top-center nav ul li.selected .lnk_list_inicio { background-image: url(img/menu-hover-home.png); background-repeat: no-repeat; background-position: center 17px; }
+.sub-top .sub-top-center nav ul li.selected .lnk_list_eventos { background-image: url(img/menu-hover-events.png); background-repeat: no-repeat; background-position: center 17px; }
+.sub-top .sub-top-center nav ul li.selected .lnk_list_blog { background-image: url(img/menu-hover-blog.png); background-repeat: no-repeat; background-position: center 17px; }
+.sub-top .sub-top-center nav ul li.selected .lnk_list_lugares { background-image: url(img/menu-hover-places.png); background-repeat: no-repeat; background-position: center 17px; }
+.sub-top .sub-top-center nav ul li.selected .lnk_list_inicio { background-image: url(img/menu-hover-home.png); background-repeat: no-repeat; background-position: center 17px; }
+.sub-top .sub-top-center nav ul li .lnk_list_inicio { background-image: url(img/menu-hover-home.png); background-repeat: no-repeat; background-position: center 17px; }
+.sub-top .sub-top-center nav ul li.list_Fotos a.element-link { background-image: url(img/menu-hover-photos.png); background-repeat: no-repeat; background-position: center 17px; }
+.sub-top .sub-top-center nav ul li.list_Fotos:hover > ul { display: block; }
+.sub-top .sub-top-center nav ul li .lnk_list_eventos { background-image: url(img/menu-hover-events.png); background-repeat: no-repeat; background-position: center 17px; }
+.sub-top .sub-top-center nav ul li .lnk_list_blog { background-image: url(img/menu-hover-blog.png); background-repeat: no-repeat; background-position: center 17px; }
+.sub-top .sub-top-center nav ul li .lnk_list_lugares { background-image: url(img/menu-hover-places.png); background-repeat: no-repeat; background-position: center 17px; }
+.sub-top .sub-top-center .logo { float:left; margin-top: 12px; }
+.sub-top .sub-top-center .logo img { width: 260px; }
+.header-shadow { width: 100%; position: absolute; top:36px; left:0; background: url(img/header-shadow.png) repeat-x; height: 73px; }
+
+.main { position: relative; text-align: center; overflow: hidden; }
+.main .main-center { display: table; position: relative; }
+.main .main-center .home-events { padding: 10px 30px; background: rgba(0,0,0,0.4); color:#fff; display: inline-block; position: relative; margin-bottom: 10px; }
+.main .main-center .home-events div.slider-container { width: 487px; height: 260px; overflow: hidden; position: relative; }
+.main .main-center .home-events div.slider-container div.slider { height: 260px; position: absolute; left:0; top:0; }
+.main .main-center .home-events div.slider-container div.event { float: left; height: 260px; width: 487px;}
+.main .main-center .home-events div.slider-container div.event img { width: 487px; height: 190px; }
+.main .main-center .home-events h2 { font-size: 23px; margin-bottom: 5px; font-family: 'SansationBold',helvetica; text-shadow:1px 1px 1px #333; }
+.main .main-center .home-events h2 a { color:#fff; }
+.main .main-center .home-events p { width: 487px; text-align: center; font-family: georgia; font-style: italic; }
+.main .main-center .home-events .banner-lnk { position: absolute; display: block; top: 120px; width: 34px; height: 37px; overflow: hidden; text-indent: -1000px; }
+.main .main-center .home-events .banner-left-flag { left:-17px; background: url(img/banner-left-flag.png) no-repeat; }
+.main .main-center .home-events .banner-right-flag { right:-17px; background: url(img/banner-right-flag.png) no-repeat; }
+
+.main .main-center .content { margin-top: 30px; position: relative; display: table-row; }
+.main .main-center .content .content-banner {  }
+.main .main-center .content .left-content { background: #fff; width: 720px; overflow: hidden; box-shadow:3px 0px 15px #666; margin-bottom: 10px; display: table-cell; }
+.main .main-center .content .left-content h3.title { background: #c8c8c8; border:1px solid #fff; border-bottom: 1px solid #999; padding: 5px 5px 5px 50px; font-size: 22px; color:#636363; text-shadow:0 1px 1px #fff; font-family: 'SansationBold',helvetica; }
+/*HOME*/
+.main .main-center .content .left-content h3.camera { background: #c8c8c8 url(img/title-camera.png) no-repeat 10px center; }
+.main .main-center .content .left-content h3.star { background: #c8c8c8 url(img/title-star.png) no-repeat 10px center; }
+.main .main-center .content .left-content h3.pensil { background: #c8c8c8 url(img/title-pensil.png) no-repeat 10px center; }
+.main .main-center .content .left-content h3.places { background: #c8c8c8 url(img/title-place.png) no-repeat 10px center; }
+.main .main-center .content .left-content .pictures { padding: 10px; overflow: hidden; }
+.main .main-center .content .left-content .pic-home { padding: 10px 10px 10px 30px; }
+.main .main-center .content .left-content .pic-home #iphone5_contest { cursor: pointer; margin-top: 3px; display: block; float:left; width: 150px; height: 50px; overflow: hidden; background: url(img/participa-iphone.jpg) no-repeat left top; text-indent: -1000px; }
+.main .main-center .content .left-content .pic-home #iphone5_contest:hover { background-position: left bottom; }
+.main .main-center .content .left-content div ul { float: left; margin-bottom: 20px; width: 700px; }
+.main .main-center .content .left-content div ul li a { display: block; }
+.main .main-center .content .left-content .pictures ul li.picture { position: relative; }
+.main .main-center .content .left-content .pictures ul li.picture a:hover > strong { color:#000 !important; }
+.main .main-center .content .left-content .pictures ul li.picture a:hover > p { color:#999 !important; }
+.main .main-center .content .left-content .pictures ul li.picture a:hover > img { opacity: 0.9; box-shadow:0 1px 1px #666; }
+.main .main-center .content .left-content .pictures ul li.picture a:hover > span { color:#ccc; }
+.main .main-center .content .left-content .pictures ul li.picture div.new { width: 50px; height: 50px; position: absolute; left:-5px; top:60px; z-index: 1000; background: url(img/new-icon.png) no-repeat; }
+.main .main-center .content .left-content .pictures ul li.picture { float:left; width: 160px; margin-right: 10px; height: 215px; margin-bottom: 10px; }
+.main .main-center .content .left-content .pictures ul li.picture strong { display: table-cell; font-size: 14px; color:#de0023; font-family: 'Titillium Web'; height: 44px; vertical-align: bottom; font-weight: normal; }
+.main .main-center .content .left-content .pictures ul li.picture span { color:#474747; font-size:16px; font-family: 'MyriadProCondRegular'; }
+.main .main-center .content .left-content .pictures ul li.picture img { padding: 5px; background: #fff; width: 150px; height: 110px; box-shadow: 0px 1px 1px #bbb; margin-bottom: 2px; }
+.main .main-center .content .left-content .pictures ul li.picture p { text-align: center; color:#333 !important; font-size: 11px; }
+.main .main-center .content .left-content .pictures .not-pictures h2 { font-weight: bold; font-family: 'MyriadProCondRegular'; font-size: 20px; }
+.main .main-center .content .left-content .pictures .not-pictures p { padding: 10px; margin-bottom: 15px; }
+.main .main-center .content .left-content div ul li.last { margin-right:0 !important; }
+.main .main-center .content .left-content .pictures .brand { display: inline-block; margin-right: 10px; }
+.main .main-center .content .left-content .see-more-pictures { background: #edf1ff; display: block; padding: 10px; border:1px solid #fff; border-top:1px solid #d4daef; text-align: center; color:#1d729d; cursor: pointer; }
+.main .main-center .content .left-content .see-more-pictures:hover { background: #d4daef; }
+/* PHOTOS */
+.main .main-center .content .left-content .pictures .nightclubs a { display: inline-block; position: relative; padding: 5px; background: #fff; box-shadow:0 1px 1px #ccc; margin-right: 10px; height: 88px; }
+.main .main-center .content .left-content .pictures .nightclubs a:hover > span { color:#b60d27; text-shadow:none; }
+.main .main-center .content .left-content .pictures .nightclubs a span { position: absolute; right: 10px; bottom: 0px; color:#fff; text-shadow:1px 1px 1px #000; font-size:40px; font-family:'MyriadProCondRegular';  }
+.main .main-center .content .left-content .pictures .nightclubs a div.shadow { position: absolute; width: 314px; height: 94px; top:0; background: url(img/nightclub-shadow.png) repeat-x left bottom; }
+.main .main-center .content .left-content .pictures .nightclubs a img { height: 89px; width: 314px; }
+/* PHOTOS > PHOTO */
+.main .main-center .content .left-content .gallery div.big-img { text-align: center; width: 662px; margin-top: 20px; position: relative; overflow: hidden; }
+.main .main-center .content .left-content .gallery div.big-img .img-container { display: inline-block; width: 660px; }
+.main .main-center .content .left-content .gallery div.big-img img { padding: 10px; box-shadow:0 1px 1px #bbb; cursor: pointer; }
+.main .main-center .content .left-content .gallery div.options { text-align: center; margin:0 auto; overflow: hidden; width: 445px; margin-top: 15px; }
+.main .main-center .content .left-content .gallery div.options a { margin-right:4px; font-size: 11px; padding: 2px 5px 2px 20px; float:left; border-right: 1px solid #ccc; color:#4488dc; cursor: pointer; }
+.main .main-center .content .left-content .gallery div.options a:hover { color:#3171c0; text-decoration: underline; }
+.main .main-center .content .left-content .gallery div.options a.last { border:none; margin-left: 10px; }
+.main .main-center .content .left-content .gallery div.options a.print { background: url(img/print.png) no-repeat left top; }
+.main .main-center .content .left-content .gallery div.options a.download { background: url(img/download.png) no-repeat left top; }
+.main .main-center .content .left-content .gallery div.options a.fb-share { background: url(img/fb-image-icon.png) no-repeat left top; }
+.main .main-center .content .left-content .gallery div.options iframe { margin-left: 5px; }
+.main .main-center .content .left-content .gallery .social { margin: 10px 0; }
+.main .main-center .content .left-content .gallery .pagination { margin: 20px 0; text-align: center; }
+.main .main-center .content .left-content .gallery .pagination a { cursor: pointer; padding: 8px 15px; border:1px solid #bcc5e4; text-indent: -100000px; background:#edf1ff url(img/pic-pag-left-arrow.png) no-repeat center center; }
+.main .main-center .content .left-content .gallery .pagination a#forward { background:#edf1ff url(img/pic-pag-right-arrow.png) no-repeat center center; }
+.main .main-center .content .left-content .gallery .pagination a:hover { background-color: #dce1f4 !important; }
+.main .main-center .content .left-content .gallery-description { font-size: 14px; font-family: 'Titillium Web'; color:#333; margin: 20px 0; text-align: center; }
+/*EVENTS*/
+.main .main-center .content .left-content .events { padding: 15px 10px; overflow: hidden; }
+.main .main-center .content .left-content .events ul li.event { float:left; margin: 0 6px 18px 0; width: 170px; }
+.main .main-center .content .left-content .events ul li.event a strong { display: table-cell; font-size: 16px; color:#de0023; font-family: 'Titillium Web'; height: 38px; vertical-align: middle; }
+.main .main-center .content .left-content .events ul li.event a span { display: block; font-size: 12px; color:#474747; }
+.main .main-center .content .left-content .events ul li.event a img { padding: 4px; border:1px solid #d5d5d5; }
+/*EVENTS > EVENT*/
+.main .main-center .content .left-content .breadcrumbs { margin-bottom: 10px; color:#333; text-align: left; padding-bottom: 5px; border-bottom: 1px solid #efefef; font-family: 'Titillium Web'; }
+.main .main-center .content .left-content .breadcrumbs a { color:#333; text-decoration: underline; }
+.main .main-center .content .left-content .breadcrumbs span { color:#de0023; }
+.main .main-center .content .left-content .events div.event { margin-bottom: 15px; }
+.main .main-center .content .left-content .events div.event img.big-cover { width: 307px; float:left; margin-right: 10px; padding: 5px; background: #fff; border:1px solid #dcdcdc; margin-bottom: 15px; }
+.main .main-center .content .left-content .events div.event .info-event { float:left; width: 370px; }
+.main .main-center .content .left-content .events div.event .info-event h4 { color:#de0023; font-size:26px; font-family: 'MyriadProCondRegular'; border-bottom:1px solid #eee; margin-bottom: 10px; }
+.main .main-center .content .left-content .events div.event .info-event span { display: block; margin-bottom: 15px; font-size: 14px; color:#333; padding-left: 25px; }
+.main .main-center .content .left-content .events div.event .info-event span.date { background: url(img/calendar-icon.jpg) no-repeat left top; }
+.main .main-center .content .left-content .events div.event .info-event span.schedule { background: url(img/clock-icon.jpg) no-repeat left top; }
+.main .main-center .content .left-content .events div.event .info-event span.place { background: url(img/place-icon.jpg) no-repeat left top; }
+.main .main-center .content .left-content .events div.event .info-event span.sell { background: url(img/ticket-icon.jpg) no-repeat left top; }
+.main .main-center .content .left-content .events div.event .info-event span.contact { background: url(img/telephone-icon.jpg) no-repeat left top; }
+.main .main-center .content .left-content .events div.event .info-event span.social a { overflow: hidden; width: 30px; height: 30px; display: inline-block; margin-right: 2px; text-indent: -1000px; }
+.main .main-center .content .left-content .events div.event .info-event span.social a.facebook { background: url("img/facebook-icon.jpg") no-repeat; }
+.main .main-center .content .left-content .events div.event .info-event span.social a.twitter { background: url("img/twitter-icon.jpg") no-repeat; }
+.main .main-center .content .left-content .events div.event .info-event span.info { background: url(img/info-icon.jpg) no-repeat left top; }
+.main .main-center .content .left-content .events div.event div.social { display: inline-block; width: 680px; }
+/*BLOG*/
+.main .main-center .content .left-content .blog { padding: 15px 10px; overflow: hidden; text-align: center; padding-bottom: 0; }
+.main .main-center .content .left-content .blog ul { border-bottom: 1px solid #e7e7e7; padding-bottom: 10px; }
+.main .main-center .content .left-content .blog ul li.entrance { float:left; margin: 0 30px 10px 0; width: 321px; text-align: left; position: relative; }
+.main .main-center .content .left-content .blog ul li.entrance .date { background: url(img/blog-date-bg.png) no-repeat; position: absolute; top:-13px; left:20px; width: 54px; height: 67px; color:#fff; padding-left: 8px; }
+.main .main-center .content .left-content .blog ul li.entrance .date .mounth { font-size: 19px; }
+.main .main-center .content .left-content .blog ul li.entrance .date .day { font-size: 28px; font-family: 'MyriadProLightBold'; }
+.main .main-center .content .left-content .blog ul li.entrance h4 { font-size: 22px; font-family: 'MyriadProCondRegular'; }
+.main .main-center .content .left-content .blog ul li.entrance h4 a { color:#d5102f; }
+.main .main-center .content .left-content .blog ul li.entrance img { width: 321px; height: 135px; }
+.main .main-center .content .left-content .blog ul li.entrance div.text { font-size: 12px !important; color:#474747 !important; line-height: 16px; }
+.main .main-center .content .left-content .blog ul li.entrance div.text a.see-more { color:#d5102f; display: inline !important; }
+.main .main-center .content .left-content .blog .not-posts { text-align: left; margin-bottom: 10px; }
+.main .main-center .content .left-content .blog .not-posts h2 { font-family: 'MyriadProCondRegular';  font-size:22px; }
+.main .main-center .content .left-content .blog .not-posts p { padding: 10px; }
+.main .main-center .content .left-content .events ul li.event a img { padding: 4px; border:1px solid #d5d5d5; width: 160px; height: 209px; }
+.main .main-center .content .left-content .blog h4 { font-size: 22px; color:#d5102f; font-family: 'MyriadProCondRegular'; text-align: left; }
+.main .main-center .content .left-content .blog p.by { font-family: 'MyriadProCondRegular'; font-size: 14px; margin-bottom: 10px; text-align: left; }
+.main .main-center .content .left-content .blog img.cover { }
+.main .main-center .content .left-content .blog .post-content { padding: 10px; text-align: justify; color:#474747 !important; }
+.main .main-center .content .left-content .blog .post-content p { margin: 12px 0; line-height: 18px; color:#474747; font-family: 'Titillium Web' !important; }
+.main .main-center .content .left-content .blog .post-content a { color:#D5102F !important; }
+.main .main-center .content .left-content .blog .post-content a:hover { text-decoration: underline; }
+.main .main-center .content .left-content .blog .social { margin-bottom: 15px; text-align: left; }
+.main .main-center .content .left-content .blog p.picture-by { font-family: 'MyriadProCondRegular'; font-size: 14px; text-align: right; color:#666; padding-right: 10px; }
+.main .main-center .content .left-content button.see_more { text-align: center; padding: 10px 0; background: #EDF1FF; width: 100%; border:1px solid #fff; margin-bottom: 10px; color:#1D729D !important; border-top:1px solid #D4DAEF; }
+.main .main-center .content .left-content button.see_more:hover { background:#D4DAEF;  }
+/*PLACES*/
+.main .main-center .content .left-content .places ul li { float:left; margin: 0 30px 5px 0; width: 321px; text-align: left; position: relative; }
+.main .main-center .content .left-content .places ul li h4 { position: absolute; right: 5px; bottom: 5px; color:#fff; font-size: 40px; text-shadow:2px 2px 2px #000; }
+.main .main-center .content .left-content .places ul li img { padding: 5px; border:1px solid #ccc }
+.main .main-center .content .left-content .events div.event .info-event .place-name { border-bottom:1px solid #eee; margin-bottom: 15px; }
+.main .main-center .content .left-content .events div.event .info-event .place-name h4 { border:none; margin-bottom: 0; }
+.main .main-center .content .left-content .events div.event .info-event .place-name a { margin-bottom: 10px; font-size:15px; font-family: 'MyriadProCondRegular'; color:#474747; letter-spacing: 1px;}
+.main .main-center .content .left-content .events div.event .info-event .place-name a:hover { text-decoration: underline; }
+/* LOGIN */
+.main .main-center .content #fb-register { display: block; text-align: right; cursor: pointer; font-family: georgia; font-style: italic; color:#549cc8; margin-bottom: 10px; text-decoration: underline; }
+.main .main-center .content #fb-register:hover { color:#000; }
+.main .main-center .content .line { position: relative; }
+.main .main-center .content .line .response { position: absolute; left:0; top:-20px; padding: 5px 10px; background: rgba(255,255,255,0.7); font-family: 'Titillium Web'; box-shadow:0 1px 1px #ccc; display: none; }
+.main .main-center .content .line .login-left { float:left; width: 650px; height: 300px; background: url(img/qtv-login-cover.png) no-repeat; color:#fff; font-family: 'MyriadProCondRegular'; position: relative; }
+.main .main-center .content .line .login-left h1 { font-size:30px; position: absolute; left:15px; bottom: 10px; }
+.main .main-center .content .line .login-right { float:left; width: 300px; padding: 10px 5px; background: #b60d27; border-radius:0 5px 5px 0; color:#fff; margin-top:1px; position: relative; height: 278px; }
+.main .main-center .content .line .login-right div { display: table-row; font-family: 'MyriadProCondRegular'; }
+.main .main-center .content .line .login-right .form h2 { text-align: right; font-size: 25px; margin-bottom: 0px; color:#710011; text-shadow:1px 1px 1px #e44d64; }
+.main .main-center .content .line .login-right .form p { text-align: right; margin-bottom: 15px;  font-size: 16px; }
+.main .main-center .content .line .login-right .light-line { position: absolute; width: 308px; height: 1px; background: #d32a44; top:1px; left:1px; }
+.main .main-center .content .line .login-right div label { width: 80px; display: table-cell; font-size: 16px; text-align: right; padding-right: 10px; vertical-align: middle; }
+.main .main-center .content .line .login-right div input,.main .main-center .content .line .login-right div select { font-size: 16px; font-family: 'MyriadProCondRegular'; background: #fff; border:1px solid #b10e28; display: table-cell; padding: 5px; vertical-align: top; width: 195px; margin-top: 2px; }
+.main .main-center .content .line .login-right div select { width: 207px; }
+.main .main-center .content .line .login-right input.submit { margin-top: 15px; float: right; border-radius:5px; background: #ed465f; border:none; color:#fff; box-shadow:0px 1px 1px #8e091d; }
+.main .main-center .content .line .login-right input.submit:hover { background: #333; box-shadow:0px 1px 1px #000; }
+.main .main-center .content .line .login-arrow { position: absolute; width: 37px; height: 121px; background: url(img/login-arrow.png) no-repeat; right: -42px; top:-15px; }
+
+/*.main .main-center .content .right-content { background: #d5102f url("img/sidebar-bg.png") repeat-y; color:#fff; padding: 10px; position: absolute; right: 0; top:5px; width: 220px; z-index: -1000; }*/
+.main .main-center .content aside { display:table-cell !important; background: #d5102f url("img/sidebar-bg.png") repeat-y; margin-top: 5px; }
+.main .main-center .content .right-content { color:#fff; padding: 0 10px 10px 10px; width: 220px; }
+.main .main-center .content .right-content h3 { font-size: 22px; font-family: 'SansationBold',helvetica; border-bottom: 1px solid #b60d27; padding: 5px 0; background: url(img/sidebar-header-bg.png) no-repeat left center; padding-left: 20px; }
+.main .main-center .content .right-content .sidebar-container { padding: 10px 0; border-top:1px solid #e81234; }
+.main .main-center .content .right-content .sidebar-container a.blog-category { text-decoration: underline; padding-bottom: 2px; color:#fff; font-family: 'Titillium Web'; padding: 0 5px; }
+.main .main-center .content .right-content .sidebar-container a.blog-category:hover { text-decoration: none; }
+.main .main-center .content .right-content .sidebar-container h4.file-year { font-family: 'MyriadProCondRegular'; font-size: 22px; margin-top: 5px; }
+.main .main-center .content .right-content .sidebar-container div.file { display: block; padding: 1px 1px 1px 10px; text-decoration: underline; margin-bottom: 0; }
+.main .main-center .content .right-content .sidebar-container div.file:hover { text-decoration: none; }
+.main .main-center .content .right-content .sidebar-container div.div,.main .main-center .content .right-content .sidebar-container a.lnk { color:#fff; font-family: 'Titillium Web'; padding: 4px; margin-bottom: 5px; }
+.main .main-center .content .right-content .sidebar-container div:hover {  }
+.main .main-center .content .right-content .sidebar-container div.div h4.side-title { font-family: 'MyriadProLightBold'; font-size:18px; margin-bottom: 5px; text-shadow:1px 1px 1px #df596e; width: 220px; }
+.main .main-center .content .right-content .sidebar-container div.div h4.side-title a { color:#fff !important; font-family: 'MyriadProCondRegular'; font-size: 19px; text-shadow:1px 1px 1px #333; }
+.main .main-center .content .right-content .sidebar-container div.div img.img { float:left; margin-right: 5px; border:2px solid #fff; width: 110px; }
+.main .main-center .content .right-content .sidebar-container div p { font-size: 13px; color:#ffd6dc; font-family: 'Titillium Web'; }
+.main .main-center .content .right-content .facebook { padding: 10px; background: #e5435d; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; -o-border-radius: 5px; margin-top: 10px; }
+
+footer .footer-center { margin: 20px auto; font-size: 11px; }
+footer .footer-center span.copy { color:#6e6e6e; }
+footer .footer-center a { color:#1D729D; font-style: italic; font-family: georgia; }
+footer .footer-center a:hover { color: #549cc8; }
+
+.clearfix:after { content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0; } 
+.clearfix { display: inline-block; } 
+html[xmlns] .clearfix { display: block; } 
+* html .clearfix { height: 1%; }
