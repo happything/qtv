@@ -4,7 +4,7 @@
 <!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
 <!--[if gt IE 8]> <html class="no-js" lang="en"> <![endif]-->
 <head>
-    <title>ChecaloEnInternet.com</title>
+    <title>Quetevalga.com</title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="description" content="" />
@@ -145,10 +145,11 @@
             
             <div class="users-container">                
                 <ul>
-                    <li>El concurso termina el 30 de Septiembre del 2012.</li>
-                    <li>Para ganar el iPod Touch, se deben conseguir un mínimo de 200 votos.</li>
-                    <li>Para los premios diarios debes ser de Culiacán, Sinaloa exclusivamente.</li>
+                    <li>El concurso termina el 5 de Noviembre del 2012 a las 00hrs.</li>
+                    <li>Para ganar el iPhone 5, se deben conseguir el mayor número de votos posibles.</li>
+                    
                     <li>No intentes hacer trampa o serás descalificado de la aplicación inmediatamente. Mejor, usa esa energía para juntar más votos.</li>                    
+                    <li>Será conciderádo trampa comprar votos por cualquier medio.</li>                    
                 </ul>
             </div>
             

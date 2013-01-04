@@ -1,30 +1,53 @@
 <?php
-    include_once 'facebook/facebook.php';
+    $date = date("Y-m-d H:i:s");
+    $date_arr = explode(" ", $date);
+    $date_day = $date_arr[0];
+    $date_time = $date_arr[1];
+    $date_time_arr = explode(":", $date_time); 
+
+    if(($date_day=="2012-11-05" && $date_time_arr[0] >= 1 && $date_time_arr[1] > 0)){
+        include_once 'fin.php';
+    } else {
+        include_once '../facebook/facebook.php';
+        //echo $_SERVER['REMOTE_ADDR'];
+
     $facebook = new Facebook(array(
-      'appId'  => '223769791078507',
-      'secret' => '14a80361b706f90f0075ca237a97020f',
+      'appId'  => '195686627223005',
+      'secret' => 'a02784be52d8f94cb0b936ac27d2a23c',      
     ));
     
     $user = $facebook->getUser();
+    $user_id = -1;
 
-    if ($user) {
-      try {
-        // Get the user profile data you have permission to view
-        $user_profile = $facebook->api('/me');    
-        //print_r($user_profile);
-        $user_id = $user_profile["id"];
+    if (($user) || (isset($_GET["state"]))) {            
+      try {        
+        $facebook_id = $user;        
+        
+        $token_url = "https://graph.facebook.com/oauth/access_token?"
+                    . "client_id=195686627223005&redirect_uri=" . urlencode("http://www.quetevalga.com/fb_concursos")
+                    . "&client_secret=a02784be52d8f94cb0b936ac27d2a23c&code=" . $_GET["code"];
+
+        $response = file_get_contents($token_url);
+        $params = null;
+        parse_str($response, $params);
+
+        $_SESSION['access_token'] = $params['access_token'];
+
+        $graph_url = "https://graph.facebook.com/me?access_token=" 
+                     . $params['access_token'];
+
+        $user = json_decode(file_get_contents($graph_url));            
 
         if (isset($_GET['code']) || isset($_GET['error'])){                
-            header("Location: https://www.facebook.com/checaloenintrnet/app_223769791078507");	   
+            header("Location: https://www.facebook.com/quetevalga/app_195686627223005");     
             exit;        
         }
 
-      } catch (FacebookApiException $e) {
+      } catch (FacebookApiException $e) {        
         $user = null;
       }
-    } else {    
-            $param = array("redirect_uri" => "https://www.facebook.com/checaloenintrnet/app_223769791078507");    
-            die('<script>top.location.href="'.$facebook->getLoginUrl().'";</script>');
+    } else {                    
+        die('<script>top.location.href="'.$facebook->getLoginUrl().'";</script>');
             //echo "<script>top.location.href='https://www.facebook.com/dialog/oauth/?client_id=".$app_id."&redirect_uri=https://www.facebook.com/SushiFactoryMx/app_328508577218686'</script>";  
     }
     
@@ -48,7 +71,6 @@
                     break;
         }
     }
-    
 ?>
 
 <!DOCTYPE html>
@@ -57,7 +79,7 @@
 <!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
 <!--[if gt IE 8]> <html class="no-js" lang="en"> <![endif]-->
 <head>
-    <title>ChecaloEnInternet.com</title>
+    <title>Gánate un iPod 5 | Grupo Premiere + Quetevalga.com</title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="description" content="" />
@@ -148,6 +170,7 @@
                 .main .info h2 { font-family: 'CodeBoldRegular'; font-size: 30px; color:#2e2e2e; font-weight: normal; letter-spacing: 1px; padding-left: 10px; text-shadow:1px 1px 1px #fff; margin: 0 0 10px 0;  }
                 .main .info p { text-shadow:1px 1px 1px #fff; font-size: 13px; }
                 .main .info p.restictions { color:#ee3137; font-style: italic; font-size: 12px; }
+                .main .info p a { color:#3c94c7; }
             /* HELP */     
                 .main .help { float: left; width: 240px; line-height: 20px; padding: 10px; }
                 .main .help h2 { font-family: 'CodeBoldRegular'; font-size: 30px; color:#2e2e2e; font-weight: normal; letter-spacing: 1px; padding-left: 10px; text-shadow:1px 1px 1px #fff; margin: 0 0 10px 0; }
@@ -185,35 +208,37 @@
                     <span class="label">¡GÁNATELO!</span>
                     <img src="img/ipod-touch.png" alt="" title="" />
                     <p class="description text-description">
-                        <span class="name">iPod touch 8gb</span>
-                        <a href="https://www.apple.com/mx/ipodtouch/" class="website" target="_blank">www.apple.com/mx/ipodtouch/</a>
-                        <span class="phrase">El mensaje es claro, diviértete.</span>
+                        <span class="name">iPhone 5</span>
+                        <a href="http://www.apple.com/mx/iphone/" class="website" target="_blank">www.apple.com/mx/iphone/</a>
+                        <span class="phrase">Lo más grande que le pasó al iPhone desde, el iPhone.</span>
                     </p>
                 </div>
                 
-                <h2 class="question">¡Tener muchos amigos te puede ayudar a ganar un ipod!</h2>
-                <a href="registro.php" class="register-button text-description">
-                    <span class="register">Regístrate</span>
-                    <span class="want">¡Si quieres ganar el ipod!</span>
+                <h2 class="question">¡Ser un monstruo este Halloween puede traerte un iPhone 5!</h2>
+                <a href="http://quetevalga.com" class="register-button text-description">
+                    <span class="register">Búscate ya</span>
+                    <span class="want">www.quetevalga.com</span>
                 </a>
             </div>
             
             <div class="info text-description">
                 <h2>¿En que consiste?</h2>
                 <p> 
-                    Regístrate y demuestra que realmente quieres el iPod. Invita a tus amigos, familia, compañeros, vecinos y hasta al perro a que voten por ti 
-                    para que puedas ganar este fabuloso iPod Touch. El que acumule más like para el 30 de Septiembre será el ganador. 
+                    Asiste a cualquiera de las fiestas de Halloween en Culiacán y busca a alguno de nuestros fotógrafos, pideles que te tomen una
+                    foto y espera a que se publique en <a href="http://quetevalga.com">Quetevalga.com</a>.
                 </p>    
 
-                <p> Además, estaremos regalando pases al cine, comidas gratis en restaurantes e idas a divertirte a los lugares que checaloeninternet.com trae para tí. </p>    
+                <p>
+                    Cuando tu fotografia sea publicada, da clic en el boton "Participar por el iPhone 5" y LISTO. Invita a todos tus amigos a votar por ti para que consigas este maravilloso gadget.
+                </p>    
 
-                <p class="restictions"> *Necesitas juntar un mínimo de 200 votos para ganar el ipod. </p>
+                <p class="restictions">* Nota: Para participar, tienes que aparecer en la foto, deberás utilizar tu disfraz al recoger el premio, en fotos con múltiples personas, el ganador es el que registre la foto dentro de la aplicación.</p>
             </div>
             
             <div class="help text-description">
                 <h2>¿Dudas?</h2>
                 <p> Para dudas o aclaraciones envíanos un inbox a nuestra fanpage. </p>
-                <a href="https://www.facebook.com/checaloenintrnet" alt="Checaloeninternet.com Fanpage" title="Checaloeninternet.com Fanpage" target="_blank">Checo en red</a>
+                <a href="https://www.facebook.com/quetevalga" alt="Quetevalga.com Fanpage" title="Quetevalga.com Fanpage" target="_blank">Quetevalga.com</a>
             </div>
         </div>
 
@@ -234,3 +259,6 @@
     <![endif]-->
 </body>
 </html>
+<?php
+    }
+?>        

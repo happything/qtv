@@ -2,36 +2,38 @@
     include_once 'facebook/facebook.php';
     
     $facebook = new Facebook(array(
-      'appId'  => '223769791078507',
-      'secret' => '14a80361b706f90f0075ca237a97020f',
+      'appId'  => '195686627223005',
+      'secret' => 'a02784be52d8f94cb0b936ac27d2a23c',
     ));
     
     $user = $facebook->getUser();
-    $user_id = -1;
+    $usr_id = -1;
 
     if ($user) {
       try {
+        $facebook_id = $user;
         // Get the user profile data you have permission to view
         $user_profile = $facebook->api('/me');    
         //print_r($user_profile);
-        $user_id = $user_profile["id"];        
+        $usr_id = $user_profile["id"];        
 
         if (isset($_GET['code']) || isset($_GET['error'])){                
-            header("Location: https://www.facebook.com/checaloenintrnet/app_223769791078507");	   
+            header("Location: https://www.facebook.com/quetevalga/app_195686627223005");     
             exit;        
         }
 
-      } catch (FacebookApiException $e) {
+      } catch (FacebookApiException $e) {        
         $user = null;
       }
-    } else {    
-            $param = array("redirect_uri" => "https://www.facebook.com/checaloenintrnet/app_223769791078507");    
-            die('<script>top.location.href="'.$facebook->getLoginUrl().'";</script>');
+    } else {        
+        die('<script>top.location.href="'.$facebook->getLoginUrl().'";</script>');
             //echo "<script>top.location.href='https://www.facebook.com/dialog/oauth/?client_id=".$app_id."&redirect_uri=https://www.facebook.com/SushiFactoryMx/app_328508577218686'</script>";  
     }
-    $facebook_id = $user_id;
 
-    include_once 'libs/connection.php';    
+    $user_id = -1;
+    if(isset($_GET["u"])) $user_id = $_GET["u"];
+    
+    include_once '../config/connection.php';    
 ?>
 
 <!DOCTYPE html>
@@ -40,12 +42,12 @@
 <!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
 <!--[if gt IE 8]> <html class="no-js" lang="en"> <![endif]-->
 <head>
-    <title>ChecaloEnInternet.com</title>
+    <title>Quetevalga.com</title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="description" content="" />
     <meta name="author" content="HappyThing" />    
-    <script src="/checalofbapp/js/libs/modernizr-2.0.6.min.js"></script>
+    <script src="/js/libs/modernizr-2.0.6.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="/checalofbapp/js/libs/jquery-1.6.2.min.js"><\/script>')</script>    
     
@@ -162,13 +164,29 @@
 </head>
 <body>
     <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/es_LA/all.js#xfbml=1&appId=223769791078507";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
+    <script>
+      window.fbAsyncInit = function() {
+        // init the FB JS SDK
+        FB.init({
+          appId      : '195686627223005', // App ID from the App Dashboard      
+          status     : true, // check the login status upon init?
+          cookie     : true, // set sessions cookies to allow your server to access the session?
+          xfbml      : true  // parse XFBML tags on this page?
+        });
+
+        // Additional initialization code such as adding Event Listeners goes here
+
+      };
+
+      // Load the SDK's source Asynchronously
+      (function(d){
+         var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement('script'); js.id = id; js.async = true;
+         js.src = "//connect.facebook.net/en_US/all.js";
+         ref.parentNode.insertBefore(js, ref);
+       }(document));
+    </script>
     
     <div class="container">
         <header>            
@@ -177,24 +195,25 @@
 
         <div class="main clearfix text-description" role="main">
             <h2 class="title">VOTA POR TU AMIGO</h2>
-            <p class="description">Ya diste con él, ahora solo te falta votar para que se gane el iPod.</p>
+            <p class="description">Ya diste con él, ahora solo te falta votar para que se gane el iPhone 5.</p>
             
             <div class="users-container">                
                 <?php
-                    $query = "SELECT users.id,name,lastname,count(votes.id) as votes,reason 
-                              FROM users 
-                              LEFT JOIN votes ON votes.users_id = users.id                                   
-                              WHERE banned = 0 AND users.id = ".$_GET["u"]." 
-                              GROUP BY users.id 
+                    $query = "SELECT fb_users.id,name,lastname,count(fb_votes.id) as votes,images.parent_id as album_id, images.title as img  
+                              FROM fb_users 
+                              LEFT JOIN fb_votes ON fb_votes.users_id = fb_users.id                                   
+                              LEFT JOIN images ON images.id = images_id 
+                              WHERE banned = 0 AND fb_users.id = ".$user_id." 
+                              GROUP BY fb_users.id 
                               ORDER BY name";
                     $result = mysql_query($query,$link);                        
                     $row = mysql_fetch_assoc($result);
                 ?>
                 
                 <?php
-                    //Search user image
-                    $img_src = "img/pics/".md5("user_".$row["id"])."/".sha1("user_".$row["id"]).".jpg";
-                    if(!is_file($img_src)) $img_src = "img/default-user.gif";
+                    $img_src = "../img/cms/galleries/".$row["album_id"]."/thumbnails/thumb_big/".$row["img"];
+                    if(!is_file($img_src)) $img_src = "img/default-user.gif"; 
+                    else $img_src = "/img/cms/galleries/".$row["album_id"]."/thumbnails/thumb_big/".$row["img"];
                 ?>                
                 <img class="user-img" src="<?= $img_src ?>" alt="" title="" />
 
@@ -202,22 +221,21 @@
                     //Voted earlier
                     $class = "";
                     $vote_label = "Vota +1";
-                    $query = "SELECT id FROM votes WHERE users_id = ".$row["id"]." AND facebook_id = ".$facebook_id;
+                    $query = "SELECT id FROM fb_votes WHERE users_id = ".$row["id"]." AND facebook_id = ".$facebook_id;
                     $result_vote = mysql_query($query,$link);
                     if(mysql_num_rows($result_vote) > 0) { $class = "disabled"; $vote_label = "Votado";}
                 ?>
 
-                <span class="name"><?= utf8_encode(stripslashes($row["name"]." ".$row["lastname"])) ?></span>
-                <span class="reason"><?= utf8_encode($row["reason"]) ?></span>
+                <span class="name"><?= utf8_encode(stripslashes($row["name"]." ".$row["lastname"])) ?></span>                                
                 <a href="" onclick="postToFeed('<?= $img_src ?>',<?= $row["id"] ?>); return false;" class="share">Compartir</a>                
                 <a class="vote <?= $class ?>" id="vote-<?= $row["id"] ?>" data-vl="<?= $row["id"] ?>">
                     <span class="num"><span><?= $row["votes"] ?></span></span>
                     <span class="label"><?= $vote_label ?></span>
-                </a>
+                </a>                
                 
                 <div class="facebook-users">
                     <?php
-                        $query = "SELECT facebook_id FROM votes WHERE users_id = ".$_GET["u"]." LIMIT 7";
+                        $query = "SELECT facebook_id FROM fb_votes WHERE users_id = ".$_GET["u"]." ORDER BY RAND() LIMIT 7";
                         $result = mysql_query($query,$link);
                         while($row = mysql_fetch_assoc($result)):
                     ?>                
@@ -226,13 +244,15 @@
 
                     <?php endwhile; ?>
                 </div>
+
+                <div style="width:524px; float:left; margin-top:10px;"><span class="reason"><strong>Comparte este link:</strong> <br> https://www.facebook.com/quetevalga/app_195686627223005?app_data=<?= $_GET["u"] ?></span>                </div>
                     
             </div>
             <div class="right">
-                <p class="description">Tú tambien puedes estar participando. Solo da clic al botón de abajo y registrate muy fácilmente.</p>
+                <p class="description">Tú tambien puedes estar participando. Solo da clic al botón de abajo y busca tu foto de halloween en el sitio web de quetevalga.com.</p>
                 <a href="registro.php" class="register-button text-description">
-                    <span class="register">Regístrate</span>
-                    <span class="want">¡Si quieres ganar ese ipod!</span>
+                    <span class="register">Búscate ya</span>
+                    <span class="want">www.quetevalga.com</span>
                 </a>
             </div>
         </div>
@@ -243,8 +263,8 @@
     </div>
 
     <!-- scripts concatenated and minified via ant build script-->
-    <script src="/checalofbapp/js/plugins.js"></script>
-    <script src="/checalofbapp/js/script.js"></script>
+    <script src="/js/plugins.js"></script>
+    <script src="/js/script.js"></script>
     <script>
         $(document).ready(function(){
             var clicked = false;            
@@ -270,27 +290,23 @@
                                 $("#vote-"+vl+" .num span").html(tv);
                                 $("#vote-"+vl+" .label").html("Votado");
                                 $("#vote-"+vl).addClass("disabled");
+                                postToFeed('<?= $img_src ?>',vl);
                             }
                         }
                     });    
                 }
             });
         });
-        window.fbAsyncInit = function() {
-            FB.init({appId: "223769791078507", status: true, cookie: true});
-        }
         
-
         function postToFeed(img,vl) {
             // calling the API ...
             var obj = {
                 method: 'feed',
-                link: 'https://www.facebook.com/checaloenintrnet/app_223769791078507?app_data='+vl,
-                picture: 'https://www.hihappything.com/checalofbapp/'+img,
-                name: 'Yo quiero ese iPod.',
-                caption: 'checaloeninternet.com',
-                description: 'Ayudame a ganarme un iPod, no seas gacho.',
-                redirect_uri: 'https://www.hihappything.com/checalofbapp/'                
+                link: 'https://www.facebook.com/quetevalga/app_195686627223005?app_data='+vl,
+                picture: 'https://www.quetevalga.com/'+img,
+                name: 'Yo quiero un iPhone 5.',
+                caption: 'quetevalga.com',
+                description: 'Ayudame a ganar un iPhone 5 con Quetevalga.com, iFix y Grupo Premier',                
             };
 
             function callback(response) {

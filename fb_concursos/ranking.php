@@ -1,6 +1,5 @@
 <?php
-    include_once 'libs/connection.php';    
-    $facebook_id = 5555434;
+    include_once '../config/connection.php';        
 ?>
 
 <!DOCTYPE html>
@@ -9,7 +8,7 @@
 <!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
 <!--[if gt IE 8]> <html class="no-js" lang="en"> <![endif]-->
 <head>
-    <title>ChecaloEnInternet.com</title>
+    <title>Quetevalga.com</title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="description" content="" />
@@ -146,79 +145,48 @@
             
             <div class="users-container">
                 <div class="top5">
-                    <h3 class="title">TOP #3 <span>(General)</span></h3>
+                    <h3 class="title">TOP #10 <span>(General)</span></h3>
                     <ul class="users5">
                         <?php
-                            $query = "SELECT users.id,name,lastname,count(votes.id) as votes 
-                                      FROM users 
-                                      LEFT JOIN votes ON votes.users_id = users.id  AND votes.date <= '2012-09-30'                                   
+                            $query = "SELECT fb_users.id,name,lastname,count(fb_votes.id) as votes,images.parent_id as album_id,images.title as img  
+                                      FROM fb_users 
+                                      LEFT JOIN fb_votes ON fb_votes.users_id = fb_users.id 
+                                      LEFT JOIN images ON images.id = images_id 
                                       WHERE banned = 0 
-                                      GROUP BY users.id 
+                                      GROUP BY fb_users.id 
                                       ORDER BY votes DESC 
-                                      LIMIT 3";
+                                      LIMIT 10";
                             $result = mysql_query($query,$link);   
                             $i = 1;
                             while($row = mysql_fetch_assoc($result)):
                                 $class = "";
                                 $first = "";
                                 if($i == 1) { $class = "first"; $first = "first"; }
-                                else if($i == 3) $class = "last";
+                                else if($i == 10) $class = "last";
                         ?>
                         <li class="user clearfix <?= $class ?>">
                             <?php
                                 //Search user image
-                                $img_src = "img/pics/".md5("user_".$row["id"])."/".sha1("user_".$row["id"]).".jpg";
+                                $img_src = "../img/cms/galleries/".$row["album_id"]."/thumbnails/thumb_big/".$row["img"];                                
                                 if(!is_file($img_src)) $img_src = "img/default-user.gif";
+                                else $img_src = "/img/cms/galleries/".$row["album_id"]."/thumbnails/thumb_big/".$row["img"];
                             ?>
                             <img src="<?= $img_src ?>" alt="" title="" />
                             <strong class="<?= $first ?>"><?= $i++ ?></strong>
-                            <span class="name"><?= utf8_encode(stripslashes($row["name"]." ".$row["lastname"])) ?></span>
+                            <span class="name"><a style="color:#333;" href="user.php?u=<?= $row["id"] ?>"><?= utf8_encode(stripslashes($row["name"]." ".$row["lastname"])) ?></a></span>
                             <span class="votes"><?= $row["votes"] ?> Votos</span>
                         </li>
                         <?php
                             endwhile;
                         ?>
                     </ul>
-                </div>
-                <div class="top10">
-                    <h3 class="title">TOP #10 <span>(Diario)</span></h3>
-                    <ul class="users10">
-                        <?php
-                            $query = "SELECT users.id,name,lastname,count(votes.id) as votes 
-                                      FROM users 
-                                      LEFT JOIN votes ON votes.users_id = users.id AND votes.date = '".date('Y-m-d')."'                                   
-                                      WHERE banned = 0 
-                                      GROUP BY users.id 
-                                      ORDER BY votes DESC 
-                                      LIMIT 10";
-                            $result = mysql_query($query,$link);   
-                            $i = 1;
-                            while($row = mysql_fetch_assoc($result)):
-                                $first = "";
-                                if($i == 1) $first = "first";                               
-                        ?>
-                        <li class="user clearfix">
-                            <?php
-                                //Search user image
-                                $img_src = "img/pics/".md5("user_".$row["id"])."/".sha1("user_".$row["id"]).".jpg";
-                                if(!is_file($img_src)) $img_src = "img/default-user.gif";
-                            ?>
-                            <img src="<?= $img_src ?>" alt="" title="" />
-                            <strong class="<?= $first ?>"><?= $i++ ?></strong>
-                            <span class="name"><?= utf8_encode(stripslashes($row["name"]." ".$row["lastname"])) ?></span>
-                            <span class="votes"><?= $row["votes"] ?> Votos</span>
-                        </li>
-                        <?php
-                            endwhile;
-                        ?>
-                    </ul>
-                </div>
+                </div>                
             </div>
             <div class="right">
                 <p class="description">Tú tambien puedes estar participando. Solo da clic al botón de abajo y registrate muy fácilmente.</p>
-                <a href="registro.php" class="register-button text-description">
-                    <span class="register">Regístrate</span>
-                    <span class="want">¡Si quieres ganar el ipod!</span>
+                <a href="http://quetevalga.com" class="register-button text-description">
+                    <span class="register">Búscate ya</span>
+                    <span class="want">www.quetevalga.com</span>
                 </a>
             </div>
         </div>
