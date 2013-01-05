@@ -1,3 +1,8 @@
+<?php   
+    $query = "SELECT title, subtitle, content FROM areas WHERE sections_id = 1 ORDER BY id LIMIT 12,2;";
+    $result_c = mysql_query($query, $link);  
+?>
+
 <!DOCTYPE html>
 <!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
@@ -140,21 +145,13 @@
         </header>
 
         <div class="main clearfix text-description" role="main">
-            <h2 class="title">CONDICIONES</h2>
-            <p class="description">Estas son las reglas y condiciones de uso de la aplicación. Deben cumplirse al pie de la letra.</p>
-            
-            <div class="users-container">                
-                <ul>
-                    <li>El concurso termina el 5 de Noviembre del 2012 a las 00hrs.</li>
-                    <li>Para ganar el iPhone 5, se deben conseguir el mayor número de votos posibles.</li>
-                    
-                    <li>No intentes hacer trampa o serás descalificado de la aplicación inmediatamente. Mejor, usa esa energía para juntar más votos.</li>                    
-                    <li>Será conciderádo trampa comprar votos por cualquier medio.</li>                    
-                </ul>
-            </div>
-            
+            <?php $row_c = mysql_fetch_assoc($result_c);?>
+            <h2 class="title"><?=$row_c['title'];?></h2>
+            <p class="description"><?=$row_c['subtitle'];?></p>
+            <div class="users-container"><?=$row_c['content'];?></div>
             <div class="right">
-                <p class="description">Tú tambien puedes estar participando. Solo da clic al botón de abajo y registrate muy fácilmente.</p>
+                <?php $row_c = mysql_fetch_assoc($result_c);?>
+                <p class="description"><?=$row_c['content'];?></p>
                 <a href="registro.php" class="register-button text-description">
                     <span class="register">Regístrate</span>
                     <span class="want">¡Si quieres ganar el ipod!</span>

@@ -71,6 +71,9 @@
                     break;
         }
     }
+
+    $query = "SELECT title, subtitle, content FROM areas WHERE sections_id = 1 ORDER BY id LIMIT 1,9;";
+    $result = mysql_query($query, $link);
 ?>
 
 <!DOCTYPE html>
@@ -78,8 +81,10 @@
 <!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
 <!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
 <!--[if gt IE 8]> <html class="no-js" lang="en"> <![endif]-->
+    
 <head>
-    <title>Gánate un iPod 5 | Grupo Premiere + Quetevalga.com</title>
+    <?php $row = mysql_fetch_assoc($result); ?>
+    <title><?=$row['subtitle'];?></title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="description" content="" />
@@ -205,16 +210,20 @@
         <div class="main clearfix" role="main">
             <div class="line clearfix">
                 <div class="ipod text-description">
-                    <span class="label">¡GÁNATELO!</span>
+                    <?php $row = mysql_fetch_assoc($result); ?>
+                    <span class="label"><?=$row['subtitle'];?></span>
                     <img src="img/ipod-touch.png" alt="" title="" />
                     <p class="description text-description">
-                        <span class="name">iPhone 5</span>
-                        <a href="http://www.apple.com/mx/iphone/" class="website" target="_blank">www.apple.com/mx/iphone/</a>
-                        <span class="phrase">Lo más grande que le pasó al iPhone desde, el iPhone.</span>
+                        <?php $row = mysql_fetch_assoc($result); ?>
+                        <span class="name"><?=$row['subtitle'];?></span>
+                        <?php $row = mysql_fetch_assoc($result); ?>
+                        <a href="http://www.apple.com/mx/iphone/" class="website" target="_blank"><?=$row['subtitle'];?></a>
+                        <?php $row = mysql_fetch_assoc($result); ?>
+                        <span class="phrase"><?=$row['subtitle'];?></span>
                     </p>
                 </div>
-                
-                <h2 class="question">¡Ser un monstruo este Halloween puede traerte un iPhone 5!</h2>
+                <?php $row = mysql_fetch_assoc($result); ?>
+                <h2 class="question"><?=$row['subtitle'];?></h2>
                 <a href="http://quetevalga.com" class="register-button text-description">
                     <span class="register">Búscate ya</span>
                     <span class="want">www.quetevalga.com</span>
@@ -222,22 +231,17 @@
             </div>
             
             <div class="info text-description">
-                <h2>¿En que consiste?</h2>
-                <p> 
-                    Asiste a cualquiera de las fiestas de Halloween en Culiacán y busca a alguno de nuestros fotógrafos, pideles que te tomen una
-                    foto y espera a que se publique en <a href="http://quetevalga.com">Quetevalga.com</a>.
-                </p>    
-
-                <p>
-                    Cuando tu fotografia sea publicada, da clic en el boton "Participar por el iPhone 5" y LISTO. Invita a todos tus amigos a votar por ti para que consigas este maravilloso gadget.
-                </p>    
-
-                <p class="restictions">* Nota: Para participar, tienes que aparecer en la foto, deberás utilizar tu disfraz al recoger el premio, en fotos con múltiples personas, el ganador es el que registre la foto dentro de la aplicación.</p>
+                <?php $row = mysql_fetch_assoc($result); ?>
+                <h2><?=$row['subtitle'];?></h2>
+                <?=$row['content'];?>  
+                <?php $row = mysql_fetch_assoc($result); ?>
+                <p class="restictions"><?=$row['content'];?> </p>
             </div>
             
             <div class="help text-description">
-                <h2>¿Dudas?</h2>
-                <p> Para dudas o aclaraciones envíanos un inbox a nuestra fanpage. </p>
+                <?php $row = mysql_fetch_assoc($result); ?>
+                <h2><?=$row['subtitle'];?></h2>
+                <?=$row['content'];?>  
                 <a href="https://www.facebook.com/quetevalga" alt="Quetevalga.com Fanpage" title="Quetevalga.com Fanpage" target="_blank">Quetevalga.com</a>
             </div>
         </div>

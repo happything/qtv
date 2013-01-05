@@ -1,5 +1,6 @@
-<?php
-    include_once '../config/connection.php';        
+<?php   
+    $query = "SELECT title, subtitle, content FROM areas WHERE sections_id = 1 ORDER BY id LIMIT 12,2;";
+    $result_r = mysql_query($query, $link);  
 ?>
 
 <!DOCTYPE html>
@@ -140,8 +141,9 @@
         </header>
 
         <div class="main clearfix text-description" role="main">
-            <h2 class="title">RANKING</h2>
-            <p class="description">Y asi van las cosas hasta ahorita.</p>
+            <?php $row_r = mysql_fetch_assoc($result_r);?>
+            <h2 class="title"><?=$row_r['title'];?></h2>
+            <p class="description"><?=$row_r['subtitle'];?></p>
             
             <div class="users-container">
                 <div class="top5">
@@ -183,7 +185,8 @@
                 </div>                
             </div>
             <div class="right">
-                <p class="description">Tú tambien puedes estar participando. Solo da clic al botón de abajo y registrate muy fácilmente.</p>
+                <?php $row_r = mysql_fetch_assoc($result_r);?>
+                <p class="description"><?=$row_r['content'];?></p>
                 <a href="http://quetevalga.com" class="register-button text-description">
                     <span class="register">Búscate ya</span>
                     <span class="want">www.quetevalga.com</span>

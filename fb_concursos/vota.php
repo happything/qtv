@@ -30,9 +30,8 @@
             //echo "<script>top.location.href='https://www.facebook.com/dialog/oauth/?client_id=".$app_id."&redirect_uri=https://www.facebook.com/SushiFactoryMx/app_328508577218686'</script>";  
     }
 
-
-    
-    include_once '../config/connection.php';    
+    $query = "SELECT title, subtitle, content FROM areas WHERE sections_id = 1 ORDER BY id LIMIT 10,2;";
+    $result_v = mysql_query($query, $link);  
 ?>
 
 <!DOCTYPE html>
@@ -195,8 +194,9 @@
         </header>
 
         <div class="main clearfix text-description" role="main">
-            <h2 class="title">Busca a tu amigo</h2>
-            <p class="description">Por aqui posiblemente esta alguno de tus amigos asi que, ¿Porqué no los buscas y le regalas un voto?</p>
+            <?php $row_v = mysql_fetch_assoc($result_v); ?>
+            <h2 class="title"><?=$row_v['subtitle'];?></h2>
+            <p class="description"><?=$row_v['content'];?></p>
             
             <div class="users-container">
                 <ul class="users">
@@ -241,7 +241,8 @@
                 </ul>
             </div>
             <div class="right">
-                <p class="description">Tú tambien puedes estar participando. Solo da clic al botón de abajo y busca tu foto de halloween en el sitio web de quetevalga.com.</p>
+                <?php $row_v = mysql_fetch_assoc($result_v); ?>
+                <p class="description"><?=$row_v['content'];?></p>
                 <a href="registro.php" class="register-button text-description">
                     <span class="register">Búscate ya</span>
                     <span class="want">www.quetevalga.com</span>

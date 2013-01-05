@@ -1,6 +1,12 @@
+<?php
+	include_once '../config/connection.php';
+	$query = "SELECT title, subtitle, content FROM areas WHERE sections_id = 1 ORDER BY id LIMIT 1;";
+	$result_h = mysql_query($query, $link);
+?>
 <div class="title">
-    <h1><img src="img/quetevalga-logo.png" alt="quetevalga.com" />, Grupo Premier y iFix!</h1>
-    <p>Te regalan un iPhone 5 este Halloween.</p>
+	<?php $row_h = mysql_fetch_assoc($result_h); ?>
+    <h1><img src="img/quetevalga-logo.png" alt="quetevalga.com" /><?=$row_h['subtitle'];?></h1>
+    <?=$row_h['content'];?>
 </div>
 
 <div class="bg-title"></div>
